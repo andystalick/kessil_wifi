@@ -1,0 +1,37 @@
+[project]
+name = "kessil-wifi"
+version = "0.1.0"
+description = "Home Assistant custom integration for Kessil aquarium lights via the Kessil WiFi Dongle"
+readme = "README.md"
+# Upper-bounded deliberately: the pinned Home Assistant test harness does not
+# support 3.14 yet, and uv resolves across the whole range rather than just the
+# interpreter in use. Raise both together when the harness moves.
+requires-python = ">=3.13.2,<3.14"
+# Intentionally empty: the integration itself is pure stdlib. Anything it needed
+# at runtime would go in custom_components/kessil_wifi/manifest.json instead,
+# because Home Assistant installs integration requirements itself.
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest-homeassistant-custom-component>=0.13.316",
+    "ruff>=0.16",
+]
+
+[tool.uv]
+# This repo is not a distributable package. Home Assistant consumes it by
+# copying custom_components/kessil_wifi/ into its config directory, so there is
+# nothing for uv to build or install.
+package = false
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "ASYNC", "RUF"]

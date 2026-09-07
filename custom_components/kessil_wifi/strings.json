@@ -1,0 +1,48 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to your Kessil dongle",
+        "description": "Enter the IP address of the Kessil WiFi dongle on your network. A static DHCP lease is recommended, as the integration does not discover address changes on its own.",
+        "data": {
+          "host": "IP address",
+          "port": "Port"
+        },
+        "data_description": {
+          "host": "For example 192.168.1.50",
+          "port": "Leave at 8888 unless you have changed it"
+        }
+      },
+      "reconfigure": {
+        "title": "Update your Kessil dongle connection",
+        "description": "Point this dongle at a new address.",
+        "data": {
+          "host": "IP address",
+          "port": "Port"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not reach the dongle. Check the IP address and that the dongle is powered on."
+    },
+    "abort": {
+      "already_configured": "This dongle is already set up.",
+      "wrong_device": "That address belongs to a different Kessil dongle.",
+      "reconfigure_successful": "Kessil dongle updated."
+    }
+  },
+  "entity": {
+    "light": {
+      "kessil_light": {
+        "state_attributes": {
+          "manual_mode": {
+            "name": "Manual mode"
+          },
+          "onboard_program_id": {
+            "name": "Onboard program"
+          }
+        }
+      }
+    }
+  }
+}

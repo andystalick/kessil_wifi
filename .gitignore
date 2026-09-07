@@ -1,0 +1,9 @@
+# uv manages .venv; uv.lock IS committed for reproducible test runs.
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# build artifact
+*.zip
