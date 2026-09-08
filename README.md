@@ -25,16 +25,22 @@ does it better than this integration could — see [Scheduling](#scheduling).
 
 ## Installation
 
-### HACS (custom repository)
-
-1. HACS → ⋮ → *Custom repositories*
-2. Add this repository, category *Integration*
-3. Install **Kessil WiFi**, then restart Home Assistant
-
 ### Manual
 
-Copy `custom_components/kessil_wifi` into your Home Assistant `config/custom_components/`
-directory and restart.
+Copy the `custom_components/kessil_wifi` directory into your Home Assistant
+`config/custom_components/` directory, then restart Home Assistant.
+
+On Home Assistant OS, where there is no host shell, use the *Samba share* or
+*Advanced SSH & Web Terminal* add-on to reach `/config`.
+
+### HACS (custom repository)
+
+**Only works if this repository is public** — HACS cannot read private
+repositories at all, regardless of how your GitHub account is connected to it.
+
+1. HACS → ⋮ → *Custom repositories*
+2. Add this repository's URL, category *Integration*
+3. Install **Kessil WiFi**, then restart Home Assistant
 
 ## Setup
 
